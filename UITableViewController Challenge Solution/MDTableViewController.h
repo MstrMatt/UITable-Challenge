@@ -1,5 +1,5 @@
 //
-//  MDViewController.h
+//  MDTableViewController.h
 //  UITableViewController Challenge Solution
 //
 //  Created by Danyeur, Matthew on 4/25/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MDViewController : UIViewController
+@interface MDTableViewController : UITableViewController
 
 @end
