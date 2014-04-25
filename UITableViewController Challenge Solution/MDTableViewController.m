@@ -46,22 +46,51 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    switch(section)
+    {
+        case 0:
+            return 2;
+            break;
+        case 1:
+            return 1;
+            break;
+        case 2:
+            return 3;
+            break;
+        default:
+            return 0;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"MDCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    switch(indexPath.section)
+    {
+        case 0:
+            cell.textLabel.text = @"I'm in section 0";
+            cell.backgroundColor = [UIColor redColor];
+            break;
+        case 1:
+            cell.textLabel.text = @"This is another section";
+            cell.textLabel.textColor = [UIColor whiteColor];
+            cell.backgroundColor = [UIColor blueColor];
+            break;
+        case 2:
+            cell.textLabel.text = [NSString stringWithFormat:@"Cell %i", indexPath.row];
+            cell.backgroundColor = [UIColor yellowColor];
+            break;
+    }
     
     return cell;
 }
